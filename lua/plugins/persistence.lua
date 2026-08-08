@@ -13,7 +13,9 @@ return {
           if vim.fn.argc() > 0 or vim.g.started_with_stdin then
             return
           end
-          require("persistence").load()
+          vim.schedule(function()
+            require("persistence").load()
+          end)
         end,
       })
 
